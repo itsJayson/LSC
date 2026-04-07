@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LSC Repair Workshop | MOT & Vehicle Repairs Bridge of Weir</title>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: modern sans-serif -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #0a1927;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* color scheme refined */
+        :root {
+            --primary-dark: #0b2b26;
+            --primary-accent: #c52a1d;
+            --secondary-accent: #e6a017;
+            --gray-light: #f4f6fa;
+            --gray-border: #e2e8f0;
+            --text-dark: #0b2b26;
+            --text-muted: #4a5b5e;
+            --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* header / navbar - with proper spacing */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0b2b26 0%, #b32d1a 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            display: block;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* buttons */
+        .btn-primary {
+            background: var(--primary-accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 8px rgba(197, 42, 29, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #9e2a1c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-accent);
+            color: var(--primary-accent);
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        /* hero spacing fixed for mobile */
+        .hero {
+            padding: 3rem 0 2rem;
+        }
+
+        .hero-grid {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #fdede9;
+            color: #c52a1d;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-highlight {
+            color: var(--primary-accent);
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            background: #e4edea;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 2rem;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid var(--gray-border);
+        }
+
+        .logo-area {
+            background: #0b2b26;
+            padding: 2rem;
+            flex: 1;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-area i {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            color: var(--secondary-accent);
+        }
+
+        .logo-area h2 {
+            font-size: 1.9rem;
+            letter-spacing: -0.02em;
+        }
+
+        .info-details {
+            flex: 2;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--primary-accent);
+            width: 32px;
+        }
+
+        .small-text {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* services section */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        /* medium screens: 2 columns */
+        @media (max-width: 760px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: 0.2s;
+            border: 1px solid var(--gray-border);
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .service-card i {
+            font-size: 2.3rem;
+            color: var(--primary-accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* ===== IMPROVED GALLERY LAYOUT: text placed BELOW image, no overlay ===== */
+        .gallery-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--gray-border);
+            transition: transform 0.2s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Image container with proper aspect ratio and background */
+        .gallery-img {
+            width: 100%;
+            background-color: #eef2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4 / 3;
+            /* consistent landscape ratio */
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-img img {
+            transform: scale(1.02);
+        }
+
+        /* Caption now clearly separated BELOW the image - no overlay, highly visible */
+        .gallery-caption {
+            padding: 1rem 1.2rem;
+            background: white;
+            border-top: 1px solid #eff3f6;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gallery-caption i {
+            color: var(--primary-accent);
+            font-size: 1rem;
+        }
+
+        .gallery-caption span {
+            color: var(--text-muted);
+            font-weight: normal;
+            font-size: 0.85rem;
+            margin-left: auto;
+        }
+
+        /* contact & map */
+        .contact-section {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0 3rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--gray-border);
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .map-container {
+            flex: 1.2;
+            min-width: 260px;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            border: 0;
+            display: block;
+        }
+
+        .opening-special {
+            background: #fef6e0;
+            border-left: 5px solid var(--secondary-accent);
+            padding: 0.9rem 1.2rem;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: #cbdbd6;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                padding: 1rem 0;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-grid {
+                flex-direction: column;
+            }
+
+            .info-card {
+                flex-direction: column;
+            }
+
+            .contact-flex {
+                flex-direction: column;
+            }
+
+            .map-container iframe {
+                min-height: 240px;
+            }
+
+            .contact-section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                gap: 1.2rem;
+            }
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .call-now-icon {
+            font-size: 0.9rem;
+        }
+
+        /* Static images no pointer events, clean */
+        .static-img {
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>LSC REPAIR <span>workshop & MOT</span></h1>
+            </div>
+            <div class="mobile-menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Workshop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-clipboard-check"></i> Class 4 & 7 MOT Centre</div>
+                    <h1>Expert Vehicle Repairs <span class="hero-highlight">& MOT</span> in Bridge of Weir</h1>
+                    <p class="hero-desc">Reliable auto workshop equipped with modern diagnostics. We handle general
+                        repairs, recovery, and fleet maintenance to keep you safe on the road.</p>
+                    <div class="cta-row">
+                        <a href="tel:+441505801812" class="btn-primary"><i class="fas fa-phone-alt"></i> Call now</a>
+                        <a href="#contact" class="btn-outline"><i class="fas fa-calendar-alt"></i> Book appointment</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div><strong>⭐ 4.9</strong> <span style="color:#e6a017;">★★★★★</span><br><span
+                                class="small-text">verified reviews</span></div>
+                        <div><strong><i class="fas fa-clock"></i> NaN</strong><br><span class="small-text">years
+                                expertise</span></div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img class="placeholder-img static-img" src="./img/LSCfront.png"
+                        alt="LSC Repair Workshop front view">
+                </div>
+            </div>
+        </section>
+
+        <!-- Info card (logo + opening hours & contact) -->
+        <div class="container info-card-section">
+            <div class="info-card">
+                <div class="logo-area">
+                    <i class="fas fa-wrench"></i>
+                    <h2>LSC <br>Repair</h2>
+                    <p style="margin-top: 0.5rem;">Trusted local garage</p>
+                </div>
+                <div class="info-details">
+                    <div class="info-item"><i class="fas fa-calendar-week"></i>
+                        <div><strong>Opening Hours</strong><br>Mon-Fri: 8am – 5pm<br>Sat: By appointment</div>
+                    </div>
+                    <div class="info-item"><i class="fas fa-phone-alt"></i>
+                        <div><strong>Call us</strong><br>+44 1505 801812</div>
+                    </div>
+                    <div class="info-item"><i class="fas fa-envelope"></i>
+                        <div><strong>Email</strong><br>lscfleet@hotmail.co.uk</div>
+                    </div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Lochermill</strong><br>51/53 Johnstone Road, Bridge of Weir, PA11 3RB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services section -->
+        <div class="container" id="services">
+            <h2 class="section-title">Our Automotive Services</h2>
+            <p class="section-sub">Complete care — MOT, repairs, tyres & recovery</p>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-wrench"></i>
+                    <h3>General Repairs</h3>
+                    <p>Engine, brakes, suspension & electrical</p>
+                </div>
+                <div class="service-card"><i class="fas fa-clipboard-list"></i>
+                    <h3>Class 4 & 7 MOT</h3>
+                    <p>Official DVSA test centre</p>
+                </div>
+                <div class="service-card"><i class="fas fa-oil-can"></i>
+                    <h3>Servicing</h3>
+                    <p>Full & interim service plans</p>
+                </div>
+                <div class="service-card"><i class="fas fa-record-vinyl"></i>
+                    <h3>Tyres</h3>
+                    <p>All brands, fitting & balancing</p>
+                </div>
+                <div class="service-card"><i class="fas fa-wind"></i>
+                    <h3>Air Conditioning</h3>
+                    <p>Regas, leak check & repairs</p>
+                </div>
+                <div class="service-card"><i class="fas fa-truck-ramp-box"></i>
+                    <h3>Recovery</h3>
+                    <p>24/7 roadside & home start</p>
+                </div>
+                <div class="service-card"><i class="fas fa-file-signature"></i>
+                    <h3>Contract Maintenance</h3>
+                    <p>Fleet & commercial vehicles</p>
+                </div>
+                <div class="service-card"><i class="fas fa-truck-fast"></i>
+                    <h3>Local Pickup/Delivery</h3>
+                    <p>By appointment only</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORKSHOP INTERIOR GALLERY: text is now below images, no overlay, improved contrast -->
+        <div class="container" id="gallery">
+            <h2 class="section-title" style="margin-bottom:0.3rem;">Inside Our Workshop</h2>
+            <p class="section-sub">State-of-the-art equipment, professional hoists, and precision alignment</p>
+            <div class="gallery-grid" id="craneGallery">
+                <!-- Workshop Image 1 -->
+                <div class="gallery-card">
+                    <div class="gallery-img static-img">
+                        <img src="./img/LSChoist.png" alt="Heavy duty vehicle hoist in workshop">
+                    </div>
+                    <div class="gallery-caption">
+                        <i class="fas fa-arrow-up"></i> Heavy duty hoist
+                        <span>4-ton capacity</span>
+                    </div>
+                </div>
+                <!-- Workshop Image 2 -->
+                <div class="gallery-card">
+                    <div class="gallery-img static-img">
+                        <img src="./img/LSCwheel.png" alt="Wheel alignment bay with digital equipment">
+                    </div>
+                    <div class="gallery-caption">
+                        <i class="fas fa-sliders-h"></i> Wheel alignment bay
+                        <span>Precision tracking</span>
+                    </div>
+                </div>
+                <!-- Workshop Image 3 -->
+                <div class="gallery-card">
+                    <div class="gallery-img static-img">
+                        <img src="./img/LSCunder.png" alt="Underbody repairs and exhaust system service">
+                    </div>
+                    <div class="gallery-caption">
+                        <i class="fas fa-car"></i> Underbody repairs
+                        <span>Exhaust & suspension</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUSTOMER LOUNGE AREA: fixed layout, text clearly visible below each image -->
+            <h2 class="gallery-title">Customer Lounge Area</h2>
+            <p class="section-sub" style="margin-bottom: 1rem;">Relax in comfort while we service your vehicle</p>
+            <div class="gallery-grid" id="loungeGallery">
+                <!-- Lounge Image 1 -->
+                <div class="gallery-card">
+                    <div class="gallery-img static-img">
+                        <img src="./img/LSClounge.jpg" alt="Comfortable seating area in customer lounge">
+                    </div>
+                    <div class="gallery-caption">
+                        <i class="fas fa-couch"></i> Comfortable seating
+                        <span>Relaxing atmosphere</span>
+                    </div>
+                </div>
+                <!-- Lounge Image 2 -->
+                <div class="gallery-card">
+                    <div class="gallery-img static-img">
+                        <img src="./img/LSClounge2.jpg" alt="Customer lounge with WiFi and complimentary coffee">
+                    </div>
+                    <div class="gallery-caption">
+                        <i class="fas fa-wifi"></i> WiFi & coffee
+                        <span>Free refreshments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact with Google Maps iframe -->
+        <div class="container" id="contact">
+            <div class="contact-section">
+                <h2 style="margin-bottom: 1.2rem;">Get in touch</h2>
+                <div class="contact-flex">
+                    <div class="contact-info">
+                        <p><i class="fas fa-location-dot"></i> <strong>51/53 Johnstone Road,
+                                Lochermill</strong><br>Bridge of Weir, PA11 3RB, United Kingdom</p>
+                        <p><i class="fas fa-phone"></i> <strong><a href="tel:+441505801812"
+                                    style="color:#c52a1d; text-decoration:none;">+44 1505 801812</a></strong></p>
+                        <p><i class="fas fa-envelope"></i> <strong>lscfleet@hotmail.co.uk</strong></p>
+                        <div class="opening-special">
+                            <i class="fas fa-clock"></i> <strong>Workshop hours:</strong> Mon–Fri 8am–5pm | Saturday by
+                            appointment <br>
+                            <i class="fas fa-truck-fast"></i> Local pick up & delivery (optional by appointment)
+                        </div>
+                        <div class="cta-row" style="margin-top: 1.2rem;">
+                            <a href="tel:+441505801812" class="btn-primary"><i class="fas fa-phone-alt"></i> Call to
+                                book</a>
+                            <a href="mailto:lscfleet@hotmail.co.uk?subject=Appointment%20Request" class="btn-outline"><i
+                                    class="fas fa-envelope"></i> Email us</a>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2448.7316575352565!2d-4.559073252325365!3d55.84994596569869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48884b007354f017%3A0xaba96597545b1065!2sLSC%20Repair%20Workshop!5e0!3m2!1sen!2sph!4v1775525111688!5m2!1sen!2sph"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 LSC Repair Workshop – Class 4 & 7 MOT Centre | Bridge of Weir | Recovery • Servicing • Tyres • Air
+                Con</p>
+            <p style="margin-top: 0.6rem;"><i class="fas fa-car-side"></i> Trusted local garage since 2010</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle (only navigation, no upload logic)
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navLinksEl = document.getElementById('navLinks');
+        if (mobileBtn && navLinksEl) {
+            mobileBtn.addEventListener('click', () => {
+                navLinksEl.classList.toggle('active');
+            });
+        }
+
+        // Optional: ensure any broken image fallback (if images missing, shows subtle background)
+        const allGalleryImgs = document.querySelectorAll('.gallery-img img');
+        allGalleryImgs.forEach(img => {
+            img.addEventListener('error', function () {
+                this.style.objectFit = 'contain';
+                this.style.backgroundColor = '#d9e2dd';
+                this.alt = "Image coming soon";
+            });
+        });
+    </script>
+
+    <!-- JSON-LD Local Business Schema (updated to AutoRepair) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "@id": "https://lsc-repair-workshop.co.uk/#business",
+  "name": "LSC Repair Workshop",
+  "url": "https://lsc-repair-workshop.co.uk",
+  "telephone": "+441505801812",
+  "email": "lscfleet@hotmail.co.uk",
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "Bridge of Weir"},
+    {"@type": "AdministrativeArea", "name": "Renfrewshire"},
+    {"@type": "AdministrativeArea", "name": "Glasgow"}
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "51/53 Johnstone Road, Lochermill",
+    "addressLocality": "Bridge of Weir",
+    "addressRegion": "Renfrewshire",
+    "postalCode": "PA11 3RB",
+    "addressCountry": "GB"
+  },
+  "openingHours": "Mo-Fr 08:00-17:00, Sa by appointment",
+  "priceRange": "££",
+  "servicesProvided": ["MOT Testing", "Vehicle Repair", "Tyre Services", "Air Conditioning", "Recovery Service", "Contract Maintenance", "Servicing"]
+}
+</script>
+</body>
+
+</html>
