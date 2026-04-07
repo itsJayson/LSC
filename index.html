@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>LSC Repair Workshop | MOT & Vehicle Repairs Bridge of Weir</title>
+    <title>LSC Repair Workshop | MOT & Vehicle Repairs Bridge of Weir | Commercial Fleet Glasgow</title>
     <!-- Font Awesome 6 (free icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: modern sans-serif -->
@@ -65,10 +65,8 @@
             font-size: 1.7rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #0b2b26 0%, #b32d1a 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            color: var(--primary-dark);
+            /* removed gradient */
         }
 
         .logo span {
@@ -88,7 +86,7 @@
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
-            color: var(--text-dark);
+            color: #000;
             transition: 0.2s;
         }
 
@@ -146,7 +144,7 @@
             color: white;
         }
 
-        /* hero spacing fixed for mobile */
+        /* hero */
         .hero {
             padding: 3rem 0 2rem;
         }
@@ -190,10 +188,26 @@
             font-size: 1.05rem;
         }
 
-        .hero-stats {
+        .hero-stars {
             display: flex;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            align-items: center;
+            gap: 8px;
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .star-gold {
+            color: #e6a017;
+        }
+
+        .star-half {
+            color: #e6a017;
+        }
+
+        .rating-number {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-right: 4px;
         }
 
         .hero-image {
@@ -225,36 +239,13 @@
             border: 1px solid var(--gray-border);
         }
 
-        .logo-area {
-            background: #0b2b26;
-            padding: 2rem;
-            flex: 1;
-            min-width: 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .logo-area i {
-            font-size: 3rem;
-            margin-bottom: 0.75rem;
-            color: var(--secondary-accent);
-        }
-
-        .logo-area h2 {
-            font-size: 1.9rem;
-            letter-spacing: -0.02em;
-        }
-
         .info-details {
             flex: 2;
             padding: 2rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 1.5rem;
+            width: 100%;
         }
 
         .info-item {
@@ -295,7 +286,6 @@
             margin: 2rem 0;
         }
 
-        /* medium screens: 2 columns */
         @media (max-width: 760px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -338,13 +328,7 @@
             font-size: 1.2rem;
         }
 
-        /* ===== IMPROVED GALLERY LAYOUT: text placed BELOW image, no overlay ===== */
-        .gallery-title {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            font-weight: 700;
-        }
-
+        /* gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -365,7 +349,6 @@
             transform: translateY(-4px);
         }
 
-        /* Image container with proper aspect ratio and background */
         .gallery-img {
             width: 100%;
             background-color: #eef2f0;
@@ -373,9 +356,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            position: relative;
             aspect-ratio: 4 / 3;
-            /* consistent landscape ratio */
         }
 
         .gallery-img img {
@@ -386,11 +367,6 @@
             transition: transform 0.3s ease;
         }
 
-        .gallery-card:hover .gallery-img img {
-            transform: scale(1.02);
-        }
-
-        /* Caption now clearly separated BELOW the image - no overlay, highly visible */
         .gallery-caption {
             padding: 1rem 1.2rem;
             background: white;
@@ -398,7 +374,6 @@
             font-weight: 600;
             font-size: 1rem;
             color: var(--primary-dark);
-            letter-spacing: -0.2px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -406,14 +381,115 @@
 
         .gallery-caption i {
             color: var(--primary-accent);
+        }
+
+        /* REVIEW SECTION */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--gray-border);
+            transition: transform 0.2s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .review-stars {
+            color: #e6a017;
+            letter-spacing: 2px;
             font-size: 1rem;
         }
 
-        .gallery-caption span {
-            color: var(--text-muted);
-            font-weight: normal;
-            font-size: 0.85rem;
-            margin-left: auto;
+        .review-text {
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* commercial section */
+        .commercial-section {
+            background: linear-gradient(135deg, #0f2e28 0%, #0a2420 100%);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+            box-shadow: var(--card-shadow);
+        }
+
+        .commercial-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .commercial-info {
+            flex: 2;
+        }
+
+        .commercial-info h3 {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .commercial-badge {
+            background: #e6a017;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #0b2b26;
+            margin-bottom: 1rem;
+        }
+
+        .commercial-detail {
+            display: flex;
+            gap: 1rem;
+            margin: 0.8rem 0;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .commercial-detail i {
+            width: 28px;
+            color: #e6a017;
+        }
+
+        .commercial-detail a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+        }
+
+        .commercial-detail a:hover {
+            color: #e6a017;
         }
 
         /* contact & map */
@@ -478,6 +554,34 @@
             margin-top: 2rem;
         }
 
+        /* Floating phone button */
+        .float-phone {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25D366;
+            /* WhatsApp greenish but with phone icon, works well */
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 1000;
+            transition: 0.2s;
+            text-decoration: none;
+            color: white;
+            font-size: 28px;
+            background-color: var(--primary-accent);
+            /* using brand accent */
+        }
+
+        .float-phone:hover {
+            transform: scale(1.08);
+            background-color: #9e2a1c;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -513,16 +617,12 @@
                 min-height: 240px;
             }
 
-            .contact-section {
-                padding: 1.5rem;
-            }
-
             .section-title {
                 font-size: 1.8rem;
             }
 
-            .gallery-grid {
-                gap: 1.2rem;
+            .reviews-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -533,13 +633,18 @@
             margin-top: 0.5rem;
         }
 
-        .call-now-icon {
-            font-size: 0.9rem;
+        a[href^="tel"],
+        a[href^="mailto"] {
+            text-decoration: none;
+            color: inherit;
         }
 
-        /* Static images no pointer events, clean */
         .static-img {
             cursor: default;
+        }
+
+        hr {
+            margin: 1rem 0;
         }
     </style>
 </head>
@@ -549,15 +654,16 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <h1>LSC REPAIR <span>workshop & MOT</span></h1>
+                <h1>LSC REPAIR <span>Workshop & MOT</span></h1>
             </div>
             <div class="mobile-menu" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" id="homeLink">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Workshop</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -575,11 +681,14 @@
                         <a href="tel:+441505801812" class="btn-primary"><i class="fas fa-phone-alt"></i> Call now</a>
                         <a href="#contact" class="btn-outline"><i class="fas fa-calendar-alt"></i> Book appointment</a>
                     </div>
-                    <div class="hero-stats">
-                        <div><strong>⭐ 4.9</strong> <span style="color:#e6a017;">★★★★★</span><br><span
-                                class="small-text">verified reviews</span></div>
-                        <div><strong><i class="fas fa-clock"></i> NaN</strong><br><span class="small-text">years
-                                expertise</span></div>
+                    <div class="hero-stars">
+                        <span class="rating-number">4.9</span>
+                        <span class="star-gold"><i class="fas fa-star"></i></span>
+                        <span class="star-gold"><i class="fas fa-star"></i></span>
+                        <span class="star-gold"><i class="fas fa-star"></i></span>
+                        <span class="star-gold"><i class="fas fa-star"></i></span>
+                        <span class="star-gold"><i class="fas fa-star-half-alt"></i></span>
+                        <span class="small-text">verified reviews</span>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -589,23 +698,20 @@
             </div>
         </section>
 
-        <!-- Info card (logo + opening hours & contact) -->
-        <div class="container info-card-section">
+        <!-- Info card (opening hours + contact) -->
+        <div class="container">
             <div class="info-card">
-                <div class="logo-area">
-                    <i class="fas fa-wrench"></i>
-                    <h2>LSC <br>Repair</h2>
-                    <p style="margin-top: 0.5rem;">Trusted local garage</p>
-                </div>
                 <div class="info-details">
                     <div class="info-item"><i class="fas fa-calendar-week"></i>
                         <div><strong>Opening Hours</strong><br>Mon-Fri: 8am – 5pm<br>Sat: By appointment</div>
                     </div>
                     <div class="info-item"><i class="fas fa-phone-alt"></i>
-                        <div><strong>Call us</strong><br>+44 1505 801812</div>
+                        <div><strong>Call us</strong><br><a href="tel:+441505801812"
+                                style="color: #c52a1d; text-decoration: none;">+44 1505 801812</a></div>
                     </div>
                     <div class="info-item"><i class="fas fa-envelope"></i>
-                        <div><strong>Email</strong><br>lscfleet@hotmail.co.uk</div>
+                        <div><strong>Email (Bow)</strong><br><a href="mailto:lscfleetbow@outlook.com"
+                                style="color: #c52a1d;">lscfleetbow@outlook.com</a></div>
                     </div>
                     <div class="info-item"><i class="fas fa-map-marker-alt"></i>
                         <div><strong>Lochermill</strong><br>51/53 Johnstone Road, Bridge of Weir, PA11 3RB</div>
@@ -614,7 +720,7 @@
             </div>
         </div>
 
-        <!-- Services section -->
+        <!-- Services -->
         <div class="container" id="services">
             <h2 class="section-title">Our Automotive Services</h2>
             <p class="section-sub">Complete care — MOT, repairs, tyres & recovery</p>
@@ -654,81 +760,124 @@
             </div>
         </div>
 
-        <!-- WORKSHOP INTERIOR GALLERY: text is now below images, no overlay, improved contrast -->
+        <!-- Workshop Gallery -->
         <div class="container" id="gallery">
             <h2 class="section-title" style="margin-bottom:0.3rem;">Inside Our Workshop</h2>
             <p class="section-sub">State-of-the-art equipment, professional hoists, and precision alignment</p>
-            <div class="gallery-grid" id="craneGallery">
-                <!-- Workshop Image 1 -->
+            <div class="gallery-grid">
                 <div class="gallery-card">
                     <div class="gallery-img static-img">
                         <img src="./img/LSChoist.png" alt="Heavy duty vehicle hoist in workshop">
                     </div>
-                    <div class="gallery-caption">
-                        <i class="fas fa-arrow-up"></i> Heavy duty hoist
-                        <span>4-ton capacity</span>
-                    </div>
+                    <div class="gallery-caption"><i class="fas fa-arrow-up"></i> Heavy duty hoist <span>4-ton
+                            capacity</span></div>
                 </div>
-                <!-- Workshop Image 2 -->
                 <div class="gallery-card">
                     <div class="gallery-img static-img">
                         <img src="./img/LSCwheel.png" alt="Wheel alignment bay with digital equipment">
                     </div>
-                    <div class="gallery-caption">
-                        <i class="fas fa-sliders-h"></i> Wheel alignment bay
-                        <span>Precision tracking</span>
-                    </div>
+                    <div class="gallery-caption"><i class="fas fa-sliders-h"></i> Wheel alignment bay <span>Precision
+                            tracking</span></div>
                 </div>
-                <!-- Workshop Image 3 -->
                 <div class="gallery-card">
                     <div class="gallery-img static-img">
                         <img src="./img/LSCunder.png" alt="Underbody repairs and exhaust system service">
                     </div>
-                    <div class="gallery-caption">
-                        <i class="fas fa-car"></i> Underbody repairs
-                        <span>Exhaust & suspension</span>
-                    </div>
+                    <div class="gallery-caption"><i class="fas fa-car"></i> Underbody repairs <span>Exhaust &
+                            suspension</span></div>
                 </div>
             </div>
+        </div>
 
-            <!-- CUSTOMER LOUNGE AREA: fixed layout, text clearly visible below each image -->
-            <h2 class="gallery-title">Customer Lounge Area</h2>
-            <p class="section-sub" style="margin-bottom: 1rem;">Relax in comfort while we service your vehicle</p>
-            <div class="gallery-grid" id="loungeGallery">
-                <!-- Lounge Image 1 -->
-                <div class="gallery-card">
-                    <div class="gallery-img static-img">
-                        <img src="./img/LSClounge.jpg" alt="Comfortable seating area in customer lounge">
+        <!-- REVIEW SECTION (real customer reviews) -->
+        <div class="container" id="reviews">
+            <h2 class="section-title">Customer Reviews</h2>
+            <p class="section-sub">What our clients say about LSC Repair Workshop</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header"><span class="review-name">Kirsten P.</span><span class="review-stars"><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i></span>
                     </div>
-                    <div class="gallery-caption">
-                        <i class="fas fa-couch"></i> Comfortable seating
-                        <span>Relaxing atmosphere</span>
-                    </div>
+                    <div class="review-text">“Highly recommend this garage. Great high standard of service throughout.
+                        Lovely waiting area with coffee and biscuits. Very enjoyable atmosphere to sit in whilst waiting
+                        on my car. Friendly, helpful and knowledgeable staff. I’ll definitely be using this garage in
+                        the future, thanks again!”</div>
                 </div>
-                <!-- Lounge Image 2 -->
-                <div class="gallery-card">
-                    <div class="gallery-img static-img">
-                        <img src="./img/LSClounge2.jpg" alt="Customer lounge with WiFi and complimentary coffee">
+                <div class="review-card">
+                    <div class="review-header"><span class="review-name">Maureen M.</span><span class="review-stars"><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i></span>
                     </div>
-                    <div class="gallery-caption">
-                        <i class="fas fa-wifi"></i> WiFi & coffee
-                        <span>Free refreshments</span>
+                    <div class="review-text">“Called at short notice as my son’s screen washer stopped working. We were
+                        seen quickly, cause found and fixed. Could not be more helpful will definitely use their
+                        services in the future and would highly recommend.”</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header"><span class="review-name">Stewart G.</span><span class="review-stars"><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    </div>
+                    <div class="review-text">“Great service and great prices too. Highly recommended.”</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header"><span class="review-name">Rhona S.</span><span class="review-stars"><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    </div>
+                    <div class="review-text">“Great service, highly recommend.”</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header"><span class="review-name">Milena</span><span class="review-stars"><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i></span></div>
+                    <div class="review-text">“Would highly recommend the service. The staff are very friendly and
+                        professional— will be going back for any future car problems as they had a difficult repair but
+                        the car is running better than it has in a long time thanks to Lennie, Alfie and Alec.”</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMMERCIAL FLEET MAINTENANCE SECTION (Glasgow) -->
+        <div class="container">
+            <div class="commercial-section">
+                <div class="commercial-flex">
+                    <div class="commercial-info">
+                        <div class="commercial-badge"><i class="fas fa-truck"></i> Commercial Fleet Maintenance</div>
+                        <h3>LSC Fleet Maintenance</h3>
+                        <p>Specialist commercial vehicle servicing, HGVs, vans & fleet contracts. Based in Glasgow with
+                            dedicated team.</p>
+                        <div class="commercial-detail"><i class="fas fa-map-pin"></i> <strong>Glasgow Branch:</strong>
+                            40 Stronend Street, G22 6AR</div>
+                        <div class="commercial-detail"><i class="fas fa-phone-alt"></i> <strong>Commercial Contact
+                                (Lennie Corrigan):</strong> <a href="tel:+447900423952">07900 423952</a></div>
+                        <div class="commercial-detail"><i class="fas fa-envelope"></i> <strong>Email (Glasgow):</strong>
+                            <a href="mailto:lscfleet@hotmail.co.uk">lscfleet@hotmail.co.uk</a>
+                        </div>
+                        <div class="commercial-detail"><i class="fas fa-clock"></i> Mon-Fri: 8am – 5:30pm | Saturday by
+                            arrangement</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Contact with Google Maps iframe -->
+        <!-- Contact with Google Maps and both emails -->
         <div class="container" id="contact">
             <div class="contact-section">
-                <h2 style="margin-bottom: 1.2rem;">Get in touch</h2>
+                <h2 style="margin-bottom: 1.2rem;">Get in touch — Bridge of Weir</h2>
                 <div class="contact-flex">
                     <div class="contact-info">
                         <p><i class="fas fa-location-dot"></i> <strong>51/53 Johnstone Road,
                                 Lochermill</strong><br>Bridge of Weir, PA11 3RB, United Kingdom</p>
                         <p><i class="fas fa-phone"></i> <strong><a href="tel:+441505801812"
                                     style="color:#c52a1d; text-decoration:none;">+44 1505 801812</a></strong></p>
-                        <p><i class="fas fa-envelope"></i> <strong>lscfleet@hotmail.co.uk</strong></p>
+                        <p><i class="fas fa-envelope"></i> <strong><a style="color:#c52a1d; "
+                                    href="mailto:lscfleetbow@outlook.com">lscfleetbow@outlook.com</a></strong> (Bridge
+                            of Weir)</p>
+                        <p><i class="fas fa-envelope"></i><strong><a style="color:#c52a1d; "
+                                    href="mailto:lscfleet@hotmail.co.uk">lscfleet@hotmail.co.uk</a></strong> (Glasgow
+                            fleet maintenance)</p>
+                        </p>
                         <div class="opening-special">
                             <i class="fas fa-clock"></i> <strong>Workshop hours:</strong> Mon–Fri 8am–5pm | Saturday by
                             appointment <br>
@@ -737,8 +886,8 @@
                         <div class="cta-row" style="margin-top: 1.2rem;">
                             <a href="tel:+441505801812" class="btn-primary"><i class="fas fa-phone-alt"></i> Call to
                                 book</a>
-                            <a href="mailto:lscfleet@hotmail.co.uk?subject=Appointment%20Request" class="btn-outline"><i
-                                    class="fas fa-envelope"></i> Email us</a>
+                            <a href="mailto:lscfleetbow@outlook.com?subject=Appointment%20Request"
+                                class="btn-outline"><i class="fas fa-envelope"></i> Email us</a>
                         </div>
                     </div>
                     <div class="map-container">
@@ -754,14 +903,18 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 LSC Repair Workshop – Class 4 & 7 MOT Centre | Bridge of Weir | Recovery • Servicing • Tyres • Air
-                Con</p>
-            <p style="margin-top: 0.6rem;"><i class="fas fa-car-side"></i> Trusted local garage since 2010</p>
+            <p>© LSC Repair Workshop – Class 4 & 7 MOT Centre | Bridge of Weir | Recovery • Servicing • Tyres • Air Con
+            </p>
+            <p style="margin-top: 0.6rem;">Trusted local garage in UK | Commercial fleet
+                Glasgow branch</p>
         </div>
     </footer>
 
+    <!-- Floating phone button (Bridge of Weir branch) -->
+    <a href="tel:+441505801812" class="float-phone" aria-label="Call LSC Repair"><i class="fas fa-phone-alt"></i></a>
+
     <script>
-        // Mobile menu toggle (only navigation, no upload logic)
+        // Mobile menu toggle
         const mobileBtn = document.getElementById('mobileMenuBtn');
         const navLinksEl = document.getElementById('navLinks');
         if (mobileBtn && navLinksEl) {
@@ -770,7 +923,26 @@
             });
         }
 
-        // Optional: ensure any broken image fallback (if images missing, shows subtle background)
+        // FIX: Home button scroll to top properly
+        const homeLink = document.getElementById('homeLink');
+        if (homeLink) {
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // update url without hash jumps
+                history.pushState(null, null, ' ');
+                if (navLinksEl.classList.contains('active')) navLinksEl.classList.remove('active');
+            });
+        }
+
+        // Also ensure any other nav links close mobile menu on click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinksEl.classList.contains('active')) navLinksEl.classList.remove('active');
+            });
+        });
+
+        // Optional: image fallback handling
         const allGalleryImgs = document.querySelectorAll('.gallery-img img');
         allGalleryImgs.forEach(img => {
             img.addEventListener('error', function () {
@@ -781,7 +953,7 @@
         });
     </script>
 
-    <!-- JSON-LD Local Business Schema (updated to AutoRepair) -->
+    <!-- JSON-LD Local Business Schema updated with both branches info -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -790,12 +962,7 @@
   "name": "LSC Repair Workshop",
   "url": "https://lsc-repair-workshop.co.uk",
   "telephone": "+441505801812",
-  "email": "lscfleet@hotmail.co.uk",
-  "areaServed": [
-    {"@type": "AdministrativeArea", "name": "Bridge of Weir"},
-    {"@type": "AdministrativeArea", "name": "Renfrewshire"},
-    {"@type": "AdministrativeArea", "name": "Glasgow"}
-  ],
+  "email": "lscfleetbow@outlook.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "51/53 Johnstone Road, Lochermill",
@@ -804,9 +971,35 @@
     "postalCode": "PA11 3RB",
     "addressCountry": "GB"
   },
-  "openingHours": "Mo-Fr 08:00-17:00, Sa by appointment",
+  "areaServed": [
+    {"@type": "AdministrativeArea", "name": "Bridge of Weir"},
+    {"@type": "AdministrativeArea", "name": "Renfrewshire"},
+    {"@type": "AdministrativeArea", "name": "Glasgow"}
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
   "priceRange": "££",
-  "servicesProvided": ["MOT Testing", "Vehicle Repair", "Tyre Services", "Air Conditioning", "Recovery Service", "Contract Maintenance", "Servicing"]
+  "servicesProvided": [
+    "MOT Testing",
+    "Vehicle Repair",
+    "Tyre Services",
+    "Air Conditioning",
+    "Recovery Service",
+    "Contract Maintenance",
+    "Servicing"
+  ]
 }
 </script>
 </body>
